@@ -69,15 +69,19 @@
 
     <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
         
-        <header class="text-center mb-8">
-            <h1 class="text-4xl md:text-5xl font-bold text-344e41">Guía Interactiva de Commits</h1>
-            <p class="mt-2 text-lg text-gray-600">Aprende a escribir mensajes de commit claros, concisos y efectivos.</p>
+        <header class="flex">
+            <div class="w-[2em] text-3xl"><a href="./index.html">⬅</a></div>
+            <div class="w-[90%] text- flex flex-col justify-center text-center">
+                <h1 class="text-4xl  md:text-5xl font-bold text-344e41">Guía Interactiva de Commits</h1>
+                <p class="mt-2 text-lg text-gray-600">Aprende a escribir mensajes de commit claros, concisos y efectivos.</p>
+            </div>
         </header>
 
         <nav class="sticky top-0 z-10 bg-fdfdfc/80 backdrop-blur-sm border-b border-gray-200 mb-8">
             <div class="max-w-5xl mx-auto">
                 <div class="flex justify-center space-x-4 sm:space-x-8 py-4">
-                    <button data-target="principios" class="nav-link active px-2 py-1 text-sm sm:text-base font-medium text-gray-500 hover:text-344e41">Principios</button>
+                    <button data-target="fundamentos" class="nav-link active px-2 py-1 text-sm sm:text-base font-medium text-gray-500 hover:text-344e41">Fundamentos</button>
+                    <button data-target="principios" class="nav-link px-2 py-1 text-sm sm:text-base font-medium text-gray-500 hover:text-344e41">Principios</button>
                     <button data-target="tipos" class="nav-link px-2 py-1 text-sm sm:text-base font-medium text-gray-500 hover:text-344e41">Tipos de Commit</button>
                     <button data-target="ejemplos" class="nav-link px-2 py-1 text-sm sm:text-base font-medium text-gray-500 hover:text-344e41">Ejemplos</button>
                 </div>
@@ -85,7 +89,41 @@
         </nav>
 
         <main id="content" class="max-w-5xl mx-auto">
-            
+            <!-- Área de Contenido (Columna derecha) -->
+           <section id="fundamentos" class="content-section">
+                <h2 class="text-2xl md:text-3xl font-bold mb-6 text-344e41" id="git-notes">Apuntes de Git: Fundamentos</h2>
+                
+                <div class="prose max-w-none text-gray-700">
+                    <p class="mb-4">Git es un sistema de control de versiones distribuido (DVCS) ampliamente utilizado para rastrear cambios en el código fuente durante el desarrollo de software. Permite a múltiples desarrolladores colaborar en un proyecto sin sobrescribir el trabajo de los demás, facilitando la gestión de versiones y la integración de cambios.</p>
+
+                    <h3 class="text-xl font-semibold mb-3 text-344e41">Conceptos Clave</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-6">
+                        <li><strong class="font-medium">Repositorio (Repository):</strong> El directorio de trabajo donde Git almacena todos los archivos del proyecto y su historial de versiones.</li>
+                        <li><strong class="font-medium">Commit:</strong> Una instantánea de los cambios en tu repositorio en un momento dado. Cada commit tiene un mensaje que describe los cambios.</li>
+                        <li><strong class="font-medium">Rama (Branch):</strong> Una línea de desarrollo independiente. Permite trabajar en nuevas características o correcciones sin afectar la versión principal del proyecto.</li>
+                        <li><strong class="font-medium">Merge:</strong> Proceso de combinar los cambios de una rama en otra.</li>
+                        <li><strong class="font-medium">HEAD:</strong> Puntero a la rama o commit actual en el que te encuentras.</li>
+                        <li><strong class="font-medium">Área de Staging (Staging Area/Index):</strong> Un paso intermedio entre tu directorio de trabajo y el repositorio. Aquí seleccionas los cambios que quieres incluir en el próximo commit.</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold mb-3 text-344e41">Comandos Básicos</h3>
+                    <ul class="list-disc list-inside space-y-2 mb-6">
+                        <li><strong class="font-medium"><code>git init</code>:</strong> Inicializa un nuevo repositorio Git en el directorio actual.</li>
+                        <li><strong class="font-medium"><code>git clone [URL]</code>:</strong> Clona un repositorio existente desde una URL remota.</li>
+                        <li><strong class="font-medium"><code>git add [archivo]</code>:</strong> Añade un archivo al área de staging. Usa <code>.</code> para añadir todos los cambios.</li>
+                        <li><strong class="font-medium"><code>git commit -m "Mensaje"</code>:</strong> Guarda los cambios del área de staging en el repositorio con un mensaje descriptivo.</li>
+                        <li><strong class="font-medium"><code>git status</code>:</strong> Muestra el estado del directorio de trabajo y el área de staging.</li>
+                        <li><strong class="font-medium"><code>git log</code>:</strong> Muestra el historial de commits.</li>
+                        <li><strong class="font-medium"><code>git branch [nombre_rama]</code>:</strong> Crea una nueva rama.</li>
+                        <li><strong class="font-medium"><code>git checkout [nombre_rama]</code>:</strong> Cambia a una rama existente.</li>
+                        <li><strong class="font-medium"><code>git merge [nombre_rama]</code>:</strong> Combina la rama especificada con la rama actual.</li>
+                        <li><strong class="font-medium"><code>git pull</code>:</strong> Descarga y combina los cambios de un repositorio remoto.</li>
+                        <li><strong class="font-medium"><code>git push</code>:</strong> Sube los commits locales a un repositorio remoto.</li>
+                    </ul>
+
+                    <p>Esta es solo una introducción a Git. La clave para dominarlo es la práctica constante y explorar su amplia gama de funcionalidades.</p>
+                </div>
+            </section>
             <section id="principios" class="content-section">
                 <div class="text-center mb-10">
                     <h2 class="text-3xl font-bold text-344e41 mb-2">¿Por Qué Esforzarse?</h2>
