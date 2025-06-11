@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Interactiva de Commits en Git</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Chosen Palette: Calm Neutrals -->
+    <!-- Application Structure Plan: La aplicación está organizada en tres secciones principales accesibles a través de una barra de navegación fija: "Principios", "Tipos de Commit" y "Ejemplos". Esta estructura segmentada fue elegida para transformar el documento lineal en una experiencia de aprendizaje modular y no lineal, permitiendo a los usuarios acceder directamente a la información que necesitan. -->
+    <!-- Visualization & Content Choices: 
+        - Principios Fundamentales: (Meta: Informar) Se presentan en tarjetas limpias para una fácil digestión. La interacción se limita a la lectura.
+        - Tipos de Commit: (Meta: Organizar, Informar) Se presentan en una lista de definiciones (`dl`) para una referencia rápida y semánticamente correcta. Justificación: Es un formato de "chuleta" o "cheat sheet" ideal para consultas rápidas. (Método: HTML).
+        - Ejemplos (Bueno vs. Malo): (Meta: Comparar) Se utiliza un diseño de dos columnas con tarjetas de colores contrastantes (verde para bueno, rojo para malo). Justificación: La comparación visual directa es una forma muy eficaz de ilustrar las diferencias y reforzar las buenas prácticas. (Método: HTML/CSS).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfdfc;
+            color: #333;
+        }
+        .nav-link {
+            transition: all 0.2s ease-in-out;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-link.active {
+            border-bottom-color: #a3b18a;
+            color: #344e41;
+        }
+        .card {
+            background-color: #ffffff;
+            border: 1px solid #e5e5e5;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .bad-example {
+            border-left: 4px solid #e63946;
+            background-color: #e639460d;
+        }
+        .good-example {
+            border-left: 4px solid #2a9d8f;
+            background-color: #2a9d8f0d;
+        }
+        .feedback {
+            transition: opacity 0.3s ease-in-out;
+        }
+        .feedback.hidden {
+            opacity: 0;
+        }
+        .feedback.visible {
+            opacity: 1;
+        }
+        .commit-preview {
+            background-color: #282c34;
+            color: #ffffff;
+            font-family: 'Courier New', Courier, monospace;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <header class="text-center mb-8">
+            <h1 class="text-4xl md:text-5xl font-bold text-344e41">Guía Interactiva de Commits</h1>
+            <p class="mt-2 text-lg text-gray-600">Aprende a escribir mensajes de commit claros, concisos y efectivos.</p>
+        </header>
+
+        <nav class="sticky top-0 z-10 bg-fdfdfc/80 backdrop-blur-sm border-b border-gray-200 mb-8">
+            <div class="max-w-5xl mx-auto">
+                <div class="flex justify-center space-x-4 sm:space-x-8 py-4">
+                    <button data-target="principios" class="nav-link active px-2 py-1 text-sm sm:text-base font-medium text-gray-500 hover:text-344e41">Principios</button>
+                    <button data-target="tipos" class="nav-link px-2 py-1 text-sm sm:text-base font-medium text-gray-500 hover:text-344e41">Tipos de Commit</button>
+                    <button data-target="ejemplos" class="nav-link px-2 py-1 text-sm sm:text-base font-medium text-gray-500 hover:text-344e41">Ejemplos</button>
+                </div>
+            </div>
+        </nav>
+
+        <main id="content" class="max-w-5xl mx-auto">
+            
+            <section id="principios" class="content-section">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-344e41 mb-2">¿Por Qué Esforzarse?</h2>
+                    <p class="text-gray-600">Un buen historial de commits es una de las mejores herramientas de un equipo.</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6 mb-12">
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="font-bold text-xl mb-2 text-3a5a40">🚀 Facilita la Colaboración</h3>
+                        <p class="text-gray-700">Ayuda a tus compañeros (y a tu futuro yo) a entender rápidamente el propósito de cada cambio sin tener que descifrar el código.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="font-bold text-xl mb-2 text-3a5a40">🔍 Mejora la Depuración</h3>
+                        <p class="text-gray-700">Permite usar herramientas como `git bisect` para encontrar el origen de un bug de forma eficiente, leyendo solo los resúmenes.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="font-bold text-xl mb-2 text-3a5a40">📖 Genera un Historial Claro</h3>
+                        <p class="text-gray-700">Convierte el log de Git en un changelog legible y significativo que documenta la evolución del proyecto.</p>
+                    </div>
+                    <div class="card p-6 rounded-lg">
+                        <h3 class="font-bold text-xl mb-2 text-3a5a40">✅ Agiliza las Revisiones</h3>
+                        <p class="text-gray-700">Proporciona el contexto necesario para que las revisiones de código (Pull Requests) sean más rápidas y efectivas.</p>
+                    </div>
+                </div>
+
+                 <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-344e41 mb-2">Principios Fundamentales</h2>
+                </div>
+                <div class="space-y-4">
+                     <div class="card p-4 rounded-md">
+                        <p><strong class="text-3a5a40">Imperativo y Presente:</strong> Escribe como si dieras una orden. "Añadir función" en vez de "Añadí" o "Se añade".</p>
+                    </div>
+                     <div class="card p-4 rounded-md">
+                        <p><strong class="text-3a5a40">Conciso y Directo:</strong> El resumen debe ser corto y al grano. El cuerpo explica los detalles.</p>
+                    </div>
+                     <div class="card p-4 rounded-md">
+                        <p><strong class="text-3a5a40">Explica el "Porqué", no el "Qué":</strong> El código ya muestra qué cambió. El commit debe explicar por qué fue necesario ese cambio.</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <section id="tipos" class="content-section hidden">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-344e41 mb-2">Tipos de Commit</h2>
+                    <p class="text-gray-600">Usa estos prefijos para categorizar tus cambios. Basado en la especificación de "Conventional Commits".</p>
+                </div>
+                <div class="space-y-4">
+                    <dl class="space-y-4">
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">feat:</dt><dd class="ml-4 text-gray-700">Un nuevo feature o funcionalidad para el usuario.</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">fix:</dt><dd class="ml-4 text-gray-700">Una corrección de un bug en producción.</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">docs:</dt><dd class="ml-4 text-gray-700">Cambios exclusivos en la documentación (README, guías, etc).</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">style:</dt><dd class="ml-4 text-gray-700">Cambios que no afectan la lógica, solo el formato (espacios, punto y coma, etc).</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">refactor:</dt><dd class="ml-4 text-gray-700">Un cambio en el código que no corrige un error ni añade una funcionalidad.</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">perf:</dt><dd class="ml-4 text-gray-700">Un cambio que mejora el rendimiento.</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">test:</dt><dd class="ml-4 text-gray-700">Añadir tests que faltan o corregir tests existentes.</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">build:</dt><dd class="ml-4 text-gray-700">Cambios que afectan al sistema de build, scripts o dependencias externas.</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">ci:</dt><dd class="ml-4 text-gray-700">Cambios en los archivos y scripts de configuración de Integración Continua.</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">chore:</dt><dd class="ml-4 text-gray-700">Otros cambios que no modifican el código fuente ni los tests (ej. actualizar tareas de Grunt).</dd></div>
+                        <div class="card p-4 rounded-lg"><dt class="font-bold text-3a5a40">revert:</dt><dd class="ml-4 text-gray-700">Revierte un commit anterior.</dd></div>
+                    </dl>
+                </div>
+            </section>
+            
+            <section id="ejemplos" class="content-section hidden">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-344e41 mb-2">Buenos y Malos Ejemplos</h2>
+                    <p class="text-gray-600">Compara y aprende a identificar un buen mensaje de commit.</p>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-8">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-center text-e63946">❌ Malos Commits</h3>
+                        <div class="bad-example p-4 rounded-md">
+                            <code class="font-mono text-sm">commit 1<br>Arreglado bug</code>
+                            <p class="text-xs text-red-800 mt-2">Razón: Demasiado vago. ¿Qué bug? ¿Cómo se arregló?</p>
+                        </div>
+                        <div class="bad-example p-4 rounded-md">
+                            <code class="font-mono text-sm">commit 2<br>cambios</code>
+                            <p class="text-xs text-red-800 mt-2">Razón: No aporta ninguna información útil.</p>
+                        </div>
+                        <div class="bad-example p-4 rounded-md">
+                            <code class="font-mono text-sm">commit 3<br>feat: he añadido la nueva página de login y he corregido un problema con el css que no se cargaba bien en firefox porque el flexbox estaba mal y también he actualizado una dependencia porque estaba obsoleta.</code>
+                             <p class="text-xs text-red-800 mt-2">Razón: Demasiado largo, mezcla varios cambios, no está en imperativo y tiene un punto al final.</p>
+                        </div>
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold text-center text-2a9d8f">✅ Buenos Commits</h3>
+                         <div class="good-example p-4 rounded-md">
+                            <code class="font-mono text-sm">fix: Corregir error de validación en formulario de registro<br><br>El formulario permitía registrar usuarios con contraseñas de menos de 8 caracteres. Se añade validador de longitud mínima.</code>
+                            <p class="text-xs text-green-800 mt-2">Razón: Claro, conciso, explica el problema y la solución.</p>
+                        </div>
+                        <div class="good-example p-4 rounded-md">
+                            <code class="font-mono text-sm">feat: Añadir paginación a la lista de artículos</code>
+                            <p class="text-xs text-green-800 mt-2">Razón: Describe claramente la nueva funcionalidad.</p>
+                        </div>
+                        <div class="good-example p-4 rounded-md">
+                            <code class="font-mono text-sm">refactor: Extraer lógica de API a un servicio dedicado<br><br>Se mueve todo el código relacionado con las llamadas a la API REST del componente `UserList` a un nuevo servicio `ApiService` para mejorar la reutilización y el testing.</code>
+                            <p class="text-xs text-green-800 mt-2">Razón: Explica el porqué de la refactorización y su impacto en la estructura.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    const targetId = link.dataset.target;
+
+                    navLinks.forEach(nav => nav.classList.remove('active'));
+                    link.classList.add('active');
+
+                    contentSections.forEach(section => {
+                        if (section.id === targetId) {
+                            section.classList.remove('hidden');
+                        } else {
+                            section.classList.add('hidden');
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
