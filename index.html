@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,96 +19,193 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfdfc; /* Fondo muy claro */
+            background-color: #fdfdfc;
+            /* Fondo muy claro */
             color: #333;
         }
-        .active-link {
-            border-left: 4px solid #a3b18a; /* Color de acento sutil */
-            background-color: #f0f2ed; /* Un tono ligeramente diferente para el activo */
-            color: #344e41; /* Color de texto más oscuro para el activo */
+
+        .card {
+            margin: 1em;
         }
-        .disabled-link {
+
+        .logo-card {
+            height: 5em;
+        }
+
+        .active a {
+            border-left: 4px solid #a3b18a;
+            /* Color de acento sutil */
+            background-color: #f0f2ed;
+            /* Un tono ligeramente diferente para el activo */
+            color: #344e41;
+            /* Color de texto más oscuro para el activo */
+        }
+
+        .disabled a, .disabled p {
             opacity: 0.5;
-            pointer-events: none; /* Deshabilita clics */
+            pointer-events: none;
+            /* Deshabilita clics */
             cursor: not-allowed;
+            pla
         }
+
+        .disabled svg {
+            filter: grayscale(100%);
+
+        }
+
         .topic-link {
             display: block;
             padding: 0.75rem 1rem;
-            border-radius: 0.375rem; /* rounded-md */
+            border-radius: 0.375rem;
+            /* rounded-md */
             transition: all 0.2s ease-in-out;
             color: #555;
         }
+
         .topic-link:hover:not(.disabled-link) {
             background-color: #e6e9e1;
             color: #344e41;
         }
     </style>
 </head>
+
 <body class="antialiased">
 
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <div class=" mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <header class="text-center mb-10">
             <h1 class="text-4xl md:text-5xl font-bold text-344e41">Mis Apuntes de Desarrollo</h1>
             <p class="mt-2 text-lg text-gray-600">Un compendio personal de conocimientos y recursos.</p>
         </header>
 
-        <div class="flex justify-center">
+        <div class="max-w-5xl mx-auto">
             <!-- Índice de Temas (Columna izquierda) -->
-            <aside class="md:col-span-1 lg:col-span-1 bg-white p-6 rounded-lg shadow-sm h-fit">
-                <h2 class="text-xl font-semibold mb-4 text-344e41">Temas</h2>
-                <nav>
-                    <ul>
-                        <li class="mb-2">
-                            <a href="./git.html" class="topic-link active-link">
-                                <span class="font-medium">Git</span>
-                            </a>
-                        </li>
-                        <li class="mb-2">
-                            <span class="topic-link disabled-link">
-                                UX y UI <span class="text-xs text-gray-500 ml-2">(Próximamente)</span>
-                            </span>
-                        </li>
-                        <li class="mb-2">
-                            <span class="topic-link disabled-link">
-                                JavaScript <span class="text-xs text-gray-500 ml-2">(Próximamente)</span>
-                            </span>
-                        </li>
-                        <li class="mb-2">
-                            <span class="topic-link disabled-link">
-                                CSS <span class="text-xs text-gray-500 ml-2">(Próximamente)</span>
-                            </span>
-                        </li>
-                        <li class="mb-2">
-                            <span class="topic-link disabled-link">
-                                React <span class="text-xs text-gray-500 ml-2">(Próximamente)</span>
-                            </span>
-                        </li>
-                    </ul>
-                </nav>
-            </aside>
+
+            <h2 class="text-2xl md:text-3xl font-bold mb-6 text-344e41 text-center" id="git-notes">Temas</h2>
+            <p class="mb-4 text-center">Mi biblioteca de ideas: Un mapa organizado de todos mis apuntes, proyectos y
+                descubrimientos.</p>
+            <nav class="grid grid-cols-1  sm:grid-cols-3 gap-4">
+                <div
+                    class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200">
+                    <div class="flex flex-col col-reverse items-center justify-center mb-4">
+                        <svg class="logo-card" xmlns="http://www.w3.org/2000/svg" width="92pt" height="92pt"
+                            viewBox="0 0 92 92">
+                            <defs>
+                                <clipPath id="a">
+                                    <path d="M0 .113h91.887V92H0Zm0 0" />
+                                </clipPath>
+                            </defs>
+                            <g clip-path="url(#a)">
+                                <path style="stroke:none;fill-rule:nonzero;fill:#f03c2e;fill-opacity:1"
+                                    d="M90.156 41.965 50.036 1.848a5.918 5.918 0 0 0-8.372 0l-8.328 8.332 10.566 10.566a7.03 7.03 0 0 1 7.23 1.684 7.034 7.034 0 0 1 1.669 7.277l10.187 10.184a7.028 7.028 0 0 1 7.278 1.672 7.04 7.04 0 0 1 0 9.957 7.05 7.05 0 0 1-9.965 0 7.044 7.044 0 0 1-1.528-7.66l-9.5-9.497V59.36a7.04 7.04 0 0 1 1.86 11.29 7.04 7.04 0 0 1-9.957 0 7.04 7.04 0 0 1 0-9.958 7.06 7.06 0 0 1 2.304-1.539V33.926a7.049 7.049 0 0 1-3.82-9.234L29.242 14.272 1.73 41.777a5.925 5.925 0 0 0 0 8.371L41.852 90.27a5.925 5.925 0 0 0 8.37 0l39.934-39.934a5.925 5.925 0 0 0 0-8.371" />
+                            </g>
+                        </svg>
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-600 ">Git
+                            </h5>
+                        </a>
+                    </div>
+
+                    <p class="mb-3 font-normal text-gray-500 "> Sistema de control de versiones
+                        distribuido para gestionar proyectos y colaborar eficientemente.</p>
+                    <a href="./git.html" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                        Ver apuntes
+                        <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                        </svg>
+                    </a>
+                </div>
+                <div
+                    class=" disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200">
+                    <div class="flex flex-col col-reverse items-center justify-center mb-4">
+                        <svg class="logo-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <title>HTML5 Logo</title>
+                            <path fill="#e44d26" d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512" />
+                            <path fill="#f16529" d="M256 480.5V131H404.3L376 447" />
+                            <path fill="#ebebeb"
+                                d="M142 176.3h114v45.4h-64.2l4.2 46.5h60v45.3H154.4M156.4 336.3H202l3.2 36.3 50.8 13.6v47.4l-93.2-26" />
+                            <path fill="#fff"
+                                d="M369.6 176.3H255.8v45.4h109.6M361.3 268.2H255.8v45.4h56l-5.3 59-50.7 13.6v47.2l93-25.8" />
+                        </svg>
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-600 ">HTLM
+                            </h5>
+                        </a>
+                    </div>
+                    <p class="mb-3 font-normal text-gray-500 "> Sistema de control de versiones
+                        distribuido para gestionar proyectos y colaborar eficientemente.</p>
+                    <a href="./git.html" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                        Ver apuntes
+                        <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                        </svg>
+                    </a>
+                </div>
+                <div
+                    class="disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200">
+                    <div class="flex flex-col col-reverse items-center justify-center mb-4">
+                        <svg class="logo-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                            <title>CSS</title>
+                            <path fill="#e44d26" d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512" />
+                            <path fill="#f16529" d="M256 480.5V131H404.3L376 447" />
+                            <path fill="#ebebeb"
+                                d="M142 176.3h114v45.4h-64.2l4.2 46.5h60v45.3H154.4M156.4 336.3H202l3.2 36.3 50.8 13.6v47.4l-93.2-26" />
+                            <path fill="#fff"
+                                d="M369.6 176.3H255.8v45.4h109.6M361.3 268.2H255.8v45.4h56l-5.3 59-50.7 13.6v47.2l93-25.8" />
+                        </svg>
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-600 ">CSS
+                            </h5>
+                        </a>
+                    </div>
+                    <p class="mb-3 font-normal text-gray-500 "> Sistema de control de versiones
+                        distribuido para gestionar proyectos y colaborar eficientemente.</p>
+                    <a href="./git.html" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                        Ver apuntes
+                        <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                        </svg>
+                    </a>
+                </div>
+        </div>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const topicLinks = document.querySelectorAll('.topic-link');
+                const contentArea = document.getElementById('content-area');
+
+                // Solo para futuros temas (cuando se habiliten), para el tema Git el contenido ya está estático
+                // Si tuvieras más contenido dinámico para Git, lo cargarías aquí
+                // Por ahora, solo se asegura que la sección de Git esté visible
+                const gitLink = document.querySelector('a[href="#git-notes"]');
+                if (gitLink) {
+                    gitLink.classList.add('active-link');
+                    const gitSection = document.getElementById('git-notes');
+                    if (gitSection) {
+                        gitSection.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+
+
+
+                const disableClass = document.getElementByClass = ('disable');
+                
+                disableClass.addEventListener('mouseover', () => {
+                
+
+
+                });
 
             
-        </div>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const topicLinks = document.querySelectorAll('.topic-link');
-            const contentArea = document.getElementById('content-area');
-
-            // Solo para futuros temas (cuando se habiliten), para el tema Git el contenido ya está estático
-            // Si tuvieras más contenido dinámico para Git, lo cargarías aquí
-            // Por ahora, solo se asegura que la sección de Git esté visible
-            const gitLink = document.querySelector('a[href="#git-notes"]');
-            if (gitLink) {
-                gitLink.classList.add('active-link');
-                const gitSection = document.getElementById('git-notes');
-                if (gitSection) {
-                    gitSection.scrollIntoView({ behavior: 'smooth' });
-                }
-            }
-        });
-    </script>
+            
+            });
+        </script>
 </body>
+
 </html>
