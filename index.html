@@ -41,7 +41,8 @@
             /* Color de texto más oscuro para el activo */
         }
 
-        .disabled a, .disabled p {
+        .disabled a,
+        .disabled p {
             opacity: 0.5;
             pointer-events: none;
             /* Deshabilita clics */
@@ -78,15 +79,14 @@
             <p class="mt-2 text-lg text-gray-600">Un compendio personal de conocimientos y recursos.</p>
         </header>
 
-        <div class="max-w-5xl mx-auto">
+        <div class="max-w-5xl mx-auto ">
             <!-- Índice de Temas (Columna izquierda) -->
 
             <h2 class="text-2xl md:text-3xl font-bold mb-6 text-344e41 text-center" id="git-notes">Temas</h2>
             <p class="mb-4 text-center">Mi biblioteca de ideas: Un mapa organizado de todos mis apuntes, proyectos y
                 descubrimientos.</p>
-            <nav class="grid grid-cols-1  sm:grid-cols-3 gap-4">
-                <div
-                    class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200">
+            <nav class="grid justify-items-center md:justify-items-stretch grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+                <div class="card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200">
                     <div class="flex flex-col col-reverse items-center justify-center mb-4">
                         <svg class="logo-card" xmlns="http://www.w3.org/2000/svg" width="92pt" height="92pt"
                             viewBox="0 0 92 92">
@@ -117,8 +117,7 @@
                         </svg>
                     </a>
                 </div>
-                <div
-                    class=" disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200">
+                <div class="disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200 flex flex-col col-reverse justify-center ">
                     <div class="flex flex-col col-reverse items-center justify-center mb-4">
                         <svg class="logo-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             <title>HTML5 Logo</title>
@@ -134,8 +133,8 @@
                             </h5>
                         </a>
                     </div>
-                    <p class="mb-3 font-normal text-gray-500 "> Sistema de control de versiones
-                        distribuido para gestionar proyectos y colaborar eficientemente.</p>
+                    <p class="mb-3 font-normal text-gray-500 ">Lenguaje de marcas para estructurar contenido web y sus
+                        elementos.</p>
                     <a href="./git.html" class="inline-flex font-medium items-center text-blue-600 hover:underline">
                         Ver apuntes
                         <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
@@ -145,25 +144,48 @@
                         </svg>
                     </a>
                 </div>
-                <div
-                    class="disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200">
+                <div class="disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200 flex flex-col col-reverse justify-center ">
                     <div class="flex flex-col col-reverse items-center justify-center mb-4">
-                        <svg class="logo-card" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                            <title>CSS</title>
-                            <path fill="#e44d26" d="M107.6 471l-33-370.4h362.8l-33 370.2L255.7 512" />
-                            <path fill="#f16529" d="M256 480.5V131H404.3L376 447" />
-                            <path fill="#ebebeb"
-                                d="M142 176.3h114v45.4h-64.2l4.2 46.5h60v45.3H154.4M156.4 336.3H202l3.2 36.3 50.8 13.6v47.4l-93.2-26" />
-                            <path fill="#fff"
-                                d="M369.6 176.3H255.8v45.4h109.6M361.3 268.2H255.8v45.4h56l-5.3 59-50.7 13.6v47.2l93-25.8" />
+                        <svg class="logo-card" xmlns:dc="http://purl.org/dc/elements/1.1/"
+                            xmlns:cc="http://creativecommons.org/ns#"
+                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                            xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg"
+                            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="102.3716mm"
+                            height="144.49777mm" viewBox="0 0 362.73401 511.99998" id="svg3476" version="1.1"
+                            inkscape:version="0.91 r13725" sodipodi:docname="CSS3.svg">
+                            <defs id="defs3478" />
+
+                            <g inkscape:label="Calque 1" inkscape:groupmode="layer" id="layer1"
+                                transform="translate(-193.633,-276.3622)">
+                                <g id="g3013" transform="translate(119,276.3622)">
+                                    <polygon id="polygon2989"
+                                        points="437.367,100.62 404.321,470.819 255.778,512 107.644,470.877 74.633,100.62 "
+                                        style="fill:#264de4" />
+                                    <polygon id="polygon2991"
+                                        points="376.03,447.246 404.27,130.894 256,130.894 256,480.523 "
+                                        style="fill:#2965f1" />
+                                    <polygon id="polygon2993"
+                                        points="150.31,268.217 154.38,313.627 256,313.627 256,268.217 "
+                                        style="fill:#ebebeb" />
+                                    <polygon id="polygon2995"
+                                        points="256,176.305 255.843,176.305 142.132,176.305 146.26,221.716 256,221.716 "
+                                        style="fill:#ebebeb" />
+                                    <polygon id="polygon2997"
+                                        points="256,433.399 256,386.153 255.801,386.206 205.227,372.55 201.994,336.333 177.419,336.333 156.409,336.333 162.771,407.634 255.791,433.457 "
+                                        style="fill:#ebebeb" />
+                                    <polygon id="polygon3005"
+                                        points="311.761,313.627 306.49,372.521 255.843,386.191 255.843,433.435 348.937,407.634 349.62,399.962 360.291,280.411 361.399,268.217 369.597,176.305 255.843,176.305 255.843,221.716 319.831,221.716 315.699,268.217 255.843,268.217 255.843,313.627 "
+                                        style="fill:#ffffff" />
+                                </g>
+                            </g>
                         </svg>
                         <a href="#">
                             <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-600 ">CSS
                             </h5>
                         </a>
                     </div>
-                    <p class="mb-3 font-normal text-gray-500 "> Sistema de control de versiones
-                        distribuido para gestionar proyectos y colaborar eficientemente.</p>
+                    <p class="mb-3 font-normal text-gray-500 ">Lenguaje  para estilizar y presentar documentos HTML en la web</p>
                     <a href="./git.html" class="inline-flex font-medium items-center text-blue-600 hover:underline">
                         Ver apuntes
                         <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
@@ -173,6 +195,85 @@
                         </svg>
                     </a>
                 </div>
+                <div class="disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200 flex flex-col col-reverse justify-center ">
+                    <div class="flex flex-col col-reverse items-center justify-center mb-4">
+                        <svg  xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" width="145.75" height="157.82767" id="svg2" version="1.1" inkscape:version="0.48.4 r9939" sodipodi:docname="javascript.svg">
+
+   
+  <g class="logo-card"  inkscape:label="Layer 1" inkscape:groupmode="layer" id="layer1" transform="translate(-326.59295,-168.33349)">
+    <g id="g8487" transform="translate(-202.57553,-38.463711)">
+      
+      
+      <g transform="matrix(1.25,0,0,1.25,-2.5065195,174.1722)" id="g3768">
+        <path style="fill:#d6ba32" inkscape:connector-curvature="0" d="m 439.03,51.2 c 9.97,-0.42 19.96,0.12 29.94,-0.05 11.01,-0.35 22.01,-0.06 33.03,-0.02 8.74,0.02 17.48,-0.04 26.22,0.03 -2.75,30.33 -5.52,60.66 -8.07,91.01 -11.71,3.33 -23.43,6.61 -35.14,9.92 -1.5,0.62 -3.04,0.04 -4.48,-0.35 -11.13,-3.2 -22.26,-6.37 -33.41,-9.45 -2.9,-30.34 -5.63,-60.71 -8.09,-91.09 m 44.78,7.91 c -0.41,14.96 -0.06,29.92 -0.18,44.88 0.11,13.68 -0.2,27.37 0.16,41.05 9.84,-2.32 19.55,-5.17 29.26,-7.98 2.44,-25.97 4.82,-51.94 6.86,-77.94 -12.03,-0.12 -24.07,0.02 -36.1,-0.01 m -12.52,58.42 c -5.78,-1.58 -11.49,-3.4 -17.35,-4.65 -0.17,3.48 -0.11,6.96 0.29,10.42 8.58,2.09 16.98,4.84 25.57,6.89 0.06,-19.81 -0.03,-39.63 0.04,-59.44 -2.8,-0.07 -5.6,-0.11 -8.4,-0.17 -0.32,15.64 -0.02,31.3 -0.15,46.95 z" id="path3770"/>
+      </g>
+      <g transform="matrix(1.25,0,0,1.25,-2.5065195,174.1722)" id="g3796">
+        <path style="fill:#ffda3e" inkscape:connector-curvature="0" d="m 483.81,59.11 c 12.03,0.03 24.07,-0.11 36.1,0.01 -2.04,26 -4.42,51.97 -6.86,77.94 -9.71,2.81 -19.42,5.66 -29.26,7.98 -0.36,-13.68 -0.05,-27.37 -0.16,-41.05 0.12,-14.96 -0.23,-29.92 0.18,-44.88 m 3.37,11.63 c 0.04,12.88 0.05,25.77 0,38.65 5.88,-0.95 11.74,-2.04 17.6,-3.11 -0.09,3 -0.21,6 -0.34,9 -5.71,1.52 -11.41,3.09 -17.15,4.5 -0.09,3.46 -0.1,6.92 -0.07,10.39 7.23,-1.62 14.35,-3.66 21.53,-5.47 0.9,-0.42 2.63,-0.37 2.55,-1.78 0.87,-9.26 1.41,-18.56 2.25,-27.84 -5.95,0.49 -11.84,1.49 -17.79,1.9 -0.05,-5.26 -0.06,-10.52 0.02,-15.78 6.26,0 12.51,0 18.77,0.01 0.4,-3.51 0.75,-7.03 1.02,-10.55 -9.46,0.04 -18.93,-0.09 -28.39,0.08 z" id="path3798"/>
+      </g>
+      <path id="path3806" d="m 586.60598,321.0847 c 0.1625,-19.5625 -0.2125,-39.1375 0.1875,-58.6875 3.5,0.075 7,0.125 10.5,0.2125 -0.0875,24.7625 0.025,49.5375 -0.05,74.3 -10.7375,-2.5625 -21.2375,-6 -31.9625,-8.6125 -0.5,-4.325 -0.575,-8.675 -0.3625,-13.025 7.325,1.5625 14.4625,3.8375 21.6875,5.8125 z" inkscape:connector-curvature="0" style="fill:#ebebeb"/>
+    </g>
+  </g>
+</svg>
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-600 ">JavaScript
+                            </h5>
+                        </a>
+                    </div>
+                    <p class="mb-3 font-normal text-gray-500 ">Lenguaje  para estilizar y presentar documentos HTML en la web</p>
+                    <a href="./git.html" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                        Ver apuntes
+                        <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200 flex flex-col col-reverse justify-center ">
+                    <div class="flex flex-col col-reverse items-center justify-center mb-4">
+                        <svg class="logo-card" xmlns="http://www.w3.org/2000/svg" viewBox="-11.5 -10.23174 23 20.46348">
+  <title>React Logo</title>
+  <circle cx="0" cy="0" r="2.05" fill="#61dafb"/>
+  <g stroke="#61dafb" stroke-width="1" fill="none">
+    <ellipse rx="11" ry="4.2"/>
+    <ellipse rx="11" ry="4.2" transform="rotate(60)"/>
+    <ellipse rx="11" ry="4.2" transform="rotate(120)"/>
+  </g>
+</svg>
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-600 ">ReactJS
+                            </h5>
+                        </a>
+                    </div>
+                    <p class="mb-3 font-normal text-gray-500 ">Lenguaje  para estilizar y presentar documentos HTML en la web</p>
+                    <a href="./git.html" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                        Ver apuntes
+                        <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                        </svg>
+                    </a>
+                </div>
+                <div class="disabled card max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-200 dark:border-gray-200 flex flex-col col-reverse justify-center ">
+                    <div class="flex flex-col col-reverse items-center justify-center mb-4">
+                       <svg class="logo-card"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 54 33"><g clip-path="url(#prefix__clip0)"><path fill="#38bdf8" fill-rule="evenodd" d="M27 0c-7.2 0-11.7 3.6-13.5 10.8 2.7-3.6 5.85-4.95 9.45-4.05 2.054.513 3.522 2.004 5.147 3.653C30.744 13.09 33.808 16.2 40.5 16.2c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C36.756 3.11 33.692 0 27 0zM13.5 16.2C6.3 16.2 1.8 19.8 0 27c2.7-3.6 5.85-4.95 9.45-4.05 2.054.514 3.522 2.004 5.147 3.653C17.244 29.29 20.308 32.4 27 32.4c7.2 0 11.7-3.6 13.5-10.8-2.7 3.6-5.85 4.95-9.45 4.05-2.054-.513-3.522-2.004-5.147-3.653C23.256 19.31 20.192 16.2 13.5 16.2z" clip-rule="evenodd"/></g><defs><clipPath id="prefix__clip0"><path fill="#fff" d="M0 0h54v32.4H0z"/></clipPath></defs></svg>
+                        <a href="#">
+                            <h5 class="mb-2 text-2xl font-semibold tracking-tight text-gray-600 ">Tailwind CSS
+                            </h5>
+                        </a>
+                    </div>
+                    <p class="mb-3 font-normal text-gray-500 ">Lenguaje  para estilizar y presentar documentos HTML en la web</p>
+                    <a href="./git.html" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                        Ver apuntes
+                        <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778" />
+                        </svg>
+                    </a>
+                </div>
+                
         </div>
 
         <script>
@@ -180,9 +281,6 @@
                 const topicLinks = document.querySelectorAll('.topic-link');
                 const contentArea = document.getElementById('content-area');
 
-                // Solo para futuros temas (cuando se habiliten), para el tema Git el contenido ya está estático
-                // Si tuvieras más contenido dinámico para Git, lo cargarías aquí
-                // Por ahora, solo se asegura que la sección de Git esté visible
                 const gitLink = document.querySelector('a[href="#git-notes"]');
                 if (gitLink) {
                     gitLink.classList.add('active-link');
@@ -195,15 +293,15 @@
 
 
                 const disableClass = document.getElementByClass = ('disable');
-                
+
                 disableClass.addEventListener('mouseover', () => {
-                
+
 
 
                 });
 
-            
-            
+
+
             });
         </script>
 </body>
